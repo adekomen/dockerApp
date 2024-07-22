@@ -1,0 +1,13 @@
+Pour chacune de ces etapes ci-dessous, coller le contenu de vos fichiers et vos commandes accompagner de captures d'ecran dans un document que vous rendrez au format PDF ou .DOCX
+
+1- Creer un Dockerfile pour dockeriser le projet nodejs-mysql-links
+
+2- Construire (Build) l'image a partir du Dokcerfile précédent et le nommer node-app avec comme tag v1.0
+
+3- Creer un network du nom de tpl2
+
+4- Demmarer le conteneur a partir de cette image, lui specifier le nom que vous souhaitez et le rajouter au network tpl2
+
+5- Demmarer un conteneur mysql avec le tag 5.7 en le rajoutant au network precedemement creer et exposer le port par défaut a un port disponible de votre DOCKER HOST  
+
+6- Creer un fichier docker-compose.yml qui demarre les 2 conteneurs

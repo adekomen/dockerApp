@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  node-app:
+    image: node-app:v1.0
+    container_name: node_app_container
+    networks:
+      - tpl2
+    ports:
+      - "4000:4000"
+    environment:
+      PORT: 4000
+      DATABASE_HOST: db
+      DATABASE_USER: fazt
+      DATABASE_PASSWORD: mypass
+      DATABASE_NAME: linksdb
+      DATABASE_PORT: 3306
+      SECRET: Ruskov est mort
+    volumes:
+      - node_app_vol:/app
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - tpl2
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_vol:/var/lib/mysql
+      - ./database:/docker-entrypoint-initdb.d
+
+networks:
+  tpl2: {}
+
+volumes:
+  node_app_vol: {}
+  mysql_vol: {}
